@@ -1,223 +1,350 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cloudflare IP 优选</title>
-    <meta name="description" content="Cloudflare IP 优选工具，提供最佳的 Cloudflare IP 地址选择，提升网络性能。">
-    <meta name="keywords" content="Cloudflare, IP 优选, 网络性能, CDN, Cloudflare IP, 最佳 IP, 提升速度">
-    <link rel="canonical" href="https://cloudflare-ip.cdtools.click">
-    <meta property="og:title" content="Cloudflare IP 优选">
-    <meta property="og:description" content="使用 Cloudflare IP 优选工具，找到最佳的 IP 地址，提升您的网络性能。">
-    <meta property="og:url" content="https://cloudflare-ip.cdtools.click">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://cloudflare-ip.cdtools.click/og-image.jpg">
-    <meta name="robots" content="index, follow">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-    <script>
-        LA.init({ id: "3KHNju0NS6KdmK8g", ck: "3KHNju0NS6KdmK8g" });
+    <meta name="description" content="Cloudflare IP 优选工具 - 提供全方位的 Cloudflare CDN IP 地址测速与优化服务。支持北京、上海、深圳、成都等多地区 IP 测速，帮助您找到最快的 Cloudflare IP，优化网站访问速度。| Cloudflare IP Optimization Tool - Comprehensive Cloudflare CDN IP address speed testing and optimization service. Supporting multi-regional IP speed testing in Beijing, Shanghai, Shenzhen, Chengdu, etc., helping you find the fastest Cloudflare IPs to optimize website access speed." />
+    <meta name="keywords" content="Cloudflare IP优选, Cloudflare优化, CDN加速, IP测速, 网络优化, 丢包率检测, 延迟测试, 下载速度测试, 网站性能优化, Cloudflare节点选择, Cloudflare IP optimization, CDN acceleration, IP speed test, network optimization, packet loss detection, latency test, download speed test, website performance, Cloudflare node selection" />
+    <link rel="canonical" href="https://cf-ip.cdtools.click" />
+    <meta property="og:title" content="Cloudflare IP 优选工具 - 多地区CDN优化解决方案 | Cloudflare IP Optimization - Multi-Regional CDN Solution" />
+    <meta property="og:description" content="专业的 Cloudflare IP 优选工具，提供实时性能监测和优化建议，助力提升您的网站访问速度。Professional Cloudflare IP optimization tool offering real-time performance monitoring and optimization suggestions to boost your website access speed." />
+    <meta property="og:url" content="https://cf-ip.cdtools.click" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://cf-ip.cdtools.click/og.png" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="stylesheet" href="windi.css" />
+
+    <!-- 增强的元标签 -->
+    <meta name="description" content="Cloudflare IP 优选工具 - 提供全方位的 Cloudflare CDN IP 地址测速与优化服务。支持北京、上海、深圳、成都等多地区 IP 测速，帮助您找到最快的 Cloudflare IP，优化网站访问速度。| Cloudflare IP Optimization Tool - Comprehensive Cloudflare CDN IP address speed testing and optimization service. Supporting multi-regional IP speed testing in Beijing, Shanghai, Shenzhen, Chengdu, etc., helping you find the fastest Cloudflare IPs to optimize website access speed." />
+    <meta name="keywords" content="Cloudflare IP优选, Cloudflare优化, CDN加速, IP测速, 网络优化, 丢包率检测, 延迟测试, 下载速度测试, 网站性能优化, Cloudflare节点选择, Cloudflare IP optimization, CDN acceleration, IP speed test, network optimization, packet loss detection, latency test, download speed test, website performance, Cloudflare node selection" />
+
+    <!-- 社交媒体优化标签 -->
+    <meta property="og:title" content="Cloudflare IP 优选工具 - 多地区CDN优化解决方案 | Cloudflare IP Optimization - Multi-Regional CDN Solution" />
+    <meta property="og:description" content="专业的 Cloudflare IP 优选工具，提供实时性能监测和优化建议，助力提升您的网站访问速度。Professional Cloudflare IP optimization tool offering real-time performance monitoring and optimization suggestions to boost your website access speed." />
+
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Cloudflare IP 优选工具",
+        "description": "专业的 Cloudflare IP 地址优选服务，提供多地区测速、性能分析和优化建议",
+        "applicationCategory": "网络工具",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "CNY"
+        }
+      }
     </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3594081485685271" crossorigin="anonymous"></script>
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?7fdd626d87b4c2ab5afee04e5fcd0b9d";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3594081485685271" crossorigin="anonymous"></script>
+  </head>
 
-    <style>
-        body {
-            background-color: #f8f9fa;
-            padding: 20px;
-        }
+  <body class="bg-gray-50 py-8 font-sans">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold text-blue-600 text-center mb-8">Cloudflare IP 优选结果</h1>
 
-        .card {
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
+      <!-- 简介卡片优化 -->
+      <div class="bg-white rounded-xl shadow-md mb-6 transition duration-300 hover:shadow-lg">
+        <div class="p-8">
+          <h2 class="text-2xl font-bold text-blue-600 mb-6">Cloudflare IP 优选工具简介</h2>
 
-        .table {
-            margin-bottom: 0;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h1 class="text-center mb-4" style="color: #007bff;">Cloudflare IP 优选结果</h1>
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">简介</h5>
-                <p class="card-text">
-                    这是一个 Cloudflare IP 优选工具的结果展示页面。下表列出了经过测试的 Cloudflare IP 地址及其性能指标,包括:
-                </p>
-                <ul>
-                    <li>发送和接收的数据包数量</li>
-                    <li>丢包率统计</li>
-                    <li>网络延迟情况</li>
-                    <li>实际下载速度测试结果</li>
-                </ul>
-                <p class="card-text">
-                    数据按照延迟时间从低到高排序,您可以根据实际需求选择合适的 IP 地址使用。
-                </p>
-                <p class="card-text text-muted">
-                    <small>数据每小时自动更新一次。最近更新时间: <span id="lastUpdate">2025-02-13 10:19:52</span></small>
-                </p>
+          <!-- 核心功能介绍 -->
+          <div class="mb-8">
+            <p class="text-gray-700 leading-relaxed mb-6 text-lg">Cloudflare IP 优选工具是一个专业的网络优化解决方案，通过先进的测速技术和智能分析算法，帮助用户找到最优质的 Cloudflare CDN 节点。我们提供全面的性能指标监测，包括：</p>
+            <div class="bg-blue-50 p-6 rounded-lg">
+              <h3 class="text-lg font-semibold text-blue-700 mb-3">性能指标分析</h3>
+              <ul class="space-y-3 text-gray-600">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span>数据包传输统计（发送/接收）</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span>实时丢包率监测与分析</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span>网络延迟精确测量</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span>下载速度实测数据</span>
+                </li>
+              </ul>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">深圳地区测试结果</h5>
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover">
-                        <thead class="table-primary">
-                            <tr>
-                                <th>IP 地址</th>
-                                <th>已发送</th>
-                                <th>已接收</th>
-                                <th>丢包率</th>
-                                <th>平均延迟</th>
-                                <th>下载速度 (MB/s)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>172.67.42.221</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>0.00</td>
-                                <td>155.39</td>
-                                <td>0.00</td>
-                            </tr>
-                            <tr>
-                                <td>104.18.148.128</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>0.00</td>
-                                <td>155.50</td>
-                                <td>0.00</td>
-                            </tr>
-                            <tr>
-                                <td>172.65.219.54</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>0.00</td>
-                                <td>156.77</td>
-                                <td>0.00</td>
-                            </tr>
-                            <tr>
-                                <td>104.19.86.242</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>0.00</td>
-                                <td>157.00</td>
-                                <td>0.00</td>
-                            </tr>
-                            <tr>
-                                <td>172.64.153.138</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>0.00</td>
-                                <td>157.05</td>
-                                <td>0.00</td>
-                            </tr>
-                            <tr>
-                                <td>104.18.165.67</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>0.00</td>
-                                <td>157.13</td>
-                                <td>0.00</td>
-                            </tr>
-                            <tr>
-                                <td>104.18.97.252</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>0.00</td>
-                                <td>157.19</td>
-                                <td>0.00</td>
-                            </tr>
-                            <tr>
-                                <td>104.19.187.133</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>0.00</td>
-                                <td>157.44</td>
-                                <td>0.00</td>
-                            </tr>
-                            <tr>
-                                <td>104.18.197.118</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>0.00</td>
-                                <td>157.51</td>
-                                <td>0.00</td>
-                            </tr>
-                            <tr>
-                                <td>172.65.248.22</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>0.00</td>
-                                <td>157.51</td>
-                                <td>0.00</td>
-                            </tr>
+          </div>
 
-                        </tbody>
-                    </table>
-                </div>
+          <!-- 更新时间和数据说明 -->
+          <div class="flex justify-between items-center mt-6 pt-6 border-t border-gray-100">
+            <div class="text-gray-600">
+              <p class="mb-2">数据说明：所有测试结果按照延迟时间从低到高排序，便于您快速找到最优节点。</p>
+              <p>推荐：优先选择丢包率低、延迟稳定的 IP 地址作为主用节点，同时配置 1-2 个备用节点。</p>
             </div>
-        </div>
-        <div class="card mt-4">
-            <div class="card-body">
-                <h5 class="card-title">地区测试结果</h5>
-                <p class="card-text">
-                    您可以点击以下链接查看不同地区的测试结果:
-                </p>
-                <div class="row g-4">
-                    <div class="col-md-3">
-                        <div class="card h-100 shadow-sm transition">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marker-alt mb-3" style="font-size: 24px; color: #007bff;"></i>
-                                <a href="beijing.html" class="stretched-link h5 mb-0">北京</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card h-100 shadow-sm transition">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marker-alt mb-3" style="font-size: 24px; color: #007bff;"></i>
-                                <a href="shanghai.html" class="stretched-link h5 mb-0">上海</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card h-100 shadow-sm transition">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marker-alt mb-3" style="font-size: 24px; color: #007bff;"></i>
-                                <a href="shenzhen.html" class="stretched-link h5 mb-0">深圳</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card h-100 shadow-sm transition">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marker-alt mb-3" style="font-size: 24px; color: #007bff;"></i>
-                                <a href="chengdu.html" class="stretched-link h5 mb-0">成都</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-right">
+              <p class="text-sm text-gray-500">最近更新时间:</p>
+              <p class="text-blue-600 font-medium" id="lastUpdate">2025-02-13 11:19:49</p>
             </div>
+          </div>
         </div>
+      </div>
+
+      <!-- IP结果表格卡片 -->
+      <div class="bg-white rounded-xl shadow-md">
+        <div class="p-6">
+          <h5 class="text-xl font-semibold text-blue-600 mb-4">深圳地区测试结果</h5>
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-4 py-2 text-left text-gray-600">IP 地址</th>
+                  <th class="px-4 py-2 text-left text-gray-600">已发送</th>
+                  <th class="px-4 py-2 text-left text-gray-600">已接收</th>
+                  <th class="px-4 py-2 text-left text-gray-600">丢包率</th>
+                  <th class="px-4 py-2 text-left text-gray-600">平均延迟</th>
+                  <th class="px-4 py-2 text-left text-gray-600">下载速度 (MB/s)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-2 text-gray-700">104.18.34.88</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                  <td class="px-4 py-2 text-gray-700">153.78</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-2 text-gray-700">172.64.153.38</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                  <td class="px-4 py-2 text-gray-700">153.98</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-2 text-gray-700">104.17.87.53</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                  <td class="px-4 py-2 text-gray-700">155.99</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-2 text-gray-700">172.64.69.224</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                  <td class="px-4 py-2 text-gray-700">156.15</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-2 text-gray-700">104.22.29.241</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                  <td class="px-4 py-2 text-gray-700">156.62</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-2 text-gray-700">104.16.224.163</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                  <td class="px-4 py-2 text-gray-700">157.08</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-2 text-gray-700">104.19.177.117</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                  <td class="px-4 py-2 text-gray-700">157.21</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-2 text-gray-700">104.17.194.17</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                  <td class="px-4 py-2 text-gray-700">157.32</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-2 text-gray-700">104.17.166.159</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                  <td class="px-4 py-2 text-gray-700">157.42</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-2 text-gray-700">172.67.22.159</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">4</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                  <td class="px-4 py-2 text-gray-700">157.50</td>
+                  <td class="px-4 py-2 text-gray-700">0.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 地区选择卡片 -->
+      <div class="bg-white rounded-xl shadow-md p-6">
+        <h5 class="text-xl font-semibold text-blue-600 mb-4">地区测试结果</h5>
+        <div class="mb-6">
+          <p class="text-gray-700 mb-2">您可以点击以下链接查看不同地区的测试结果:</p>
+          <p class="text-sm text-blue-600">* 所有地区数据每小时自动更新一次，确保测试结果时效性</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="group bg-white rounded-lg shadow-sm hover:shadow-md transition duration-300">
+            <div class="p-4 text-center relative">
+              <i class="fas fa-map-marker-alt text-2xl text-blue-500 mb-3"></i>
+              <a href="beijing.html" class="block text-gray-800 font-medium hover:text-blue-600 transition">北京</a>
+            </div>
+          </div>
+          <div class="group bg-white rounded-lg shadow-sm hover:shadow-md transition duration-300">
+            <div class="p-4 text-center relative">
+              <i class="fas fa-map-marker-alt text-2xl text-blue-500 mb-3"></i>
+              <a href="shanghai.html" class="block text-gray-800 font-medium hover:text-blue-600 transition">上海</a>
+            </div>
+          </div>
+          <div class="group bg-white rounded-lg shadow-sm hover:shadow-md transition duration-300">
+            <div class="p-4 text-center relative">
+              <i class="fas fa-map-marker-alt text-2xl text-blue-500 mb-3"></i>
+              <a href="shenzhen.html" class="block text-gray-800 font-medium hover:text-blue-600 transition">深圳</a>
+            </div>
+          </div>
+          <div class="group bg-white rounded-lg shadow-sm hover:shadow-md transition duration-300">
+            <div class="p-4 text-center relative">
+              <i class="fas fa-map-marker-alt text-2xl text-blue-500 mb-3"></i>
+              <a href="chengdu.html" class="block text-gray-800 font-medium hover:text-blue-600 transition">成都</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 使用方法卡片 -->
+      <div class="bg-white rounded-xl shadow-md mt-6 p-6">
+        <h5 class="text-xl font-semibold text-blue-600 mb-4">使用方法</h5>
+        <div class="space-y-6">
+          <div>
+            <h6 class="font-medium text-gray-800 mb-3">1. 域名解析方法</h6>
+            <p class="text-gray-700 mb-2">将您的域名添加 A 记录，指向优选的 IP 地址：</p>
+            <ul class="space-y-2 text-gray-600 list-disc pl-5">
+              <li>登录您的域名管理面板</li>
+              <li>添加 A 记录</li>
+              <li>将记录值设置为优选的 IP 地址</li>
+              <li>TTL 建议设置为 300 秒</li>
+            </ul>
+          </div>
+          <div>
+            <h6 class="font-medium text-gray-800 mb-3">2. Hosts 文件修改方法</h6>
+            <p class="text-gray-700 mb-2">您也可以通过修改 Hosts 文件来使用优选 IP：</p>
+            <ul class="space-y-2 text-gray-600 list-disc pl-5">
+              <li>Windows 系统：修改 C:\Windows\System32\drivers\etc\hosts 文件</li>
+              <li>Linux/Mac 系统：修改 /etc/hosts 文件</li>
+              <li>添加格式：[优选IP] [域名]</li>
+              <li>例如：104.16.1.1 example.com</li>
+            </ul>
+          </div>
+          <div>
+            <h6 class="font-medium text-gray-800 mb-3">3. 注意事项</h6>
+            <ul class="space-y-2 text-gray-600 list-disc pl-5">
+              <li>建议定期更新使用的 IP 地址，保持最佳性能</li>
+              <li>不同地区的最优 IP 可能不同，请选择适合您所在地区的 IP</li>
+              <li>如遇网络问题，可尝试更换其他优选 IP</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO 优化内容区域 -->
+      <div class="bg-white rounded-xl shadow-md mt-6 p-6">
+        <div class="mb-8">
+          <h2 class="text-2xl font-semibold text-blue-600 mb-4">什么是 Cloudflare IP 优选？为什么需要它？</h2>
+          <div class="text-gray-700 space-y-4">
+            <p>Cloudflare IP 优选是一项专业的网络优化服务，通过科学的测速方法，帮助用户找到最适合的 Cloudflare CDN 节点 IP 地址。在当今快速发展的互联网环境中，网站性能直接影响用户体验和业务成功。通过 Cloudflare IP 优选，您可以：</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>显著提升网站访问速度</li>
+              <li>降低网络延迟和丢包率</li>
+              <li>优化 CDN 节点选择</li>
+              <li>提升用户访问体验</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <h2 class="text-2xl font-semibold text-blue-600 mb-4">What is Cloudflare IP Optimization? Why Do You Need It?</h2>
+          <div class="text-gray-700 space-y-4">
+            <p>Cloudflare IP optimization is a professional network optimization service that helps users find the most suitable Cloudflare CDN node IP addresses through scientific speed testing methods. In today's rapidly evolving internet environment, website performance directly impacts user experience and business success. Through Cloudflare IP optimization, you can:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Significantly improve website access speed</li>
+              <li>Reduce network latency and packet loss</li>
+              <li>Optimize CDN node selection</li>
+              <li>Enhance user access experience</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 技术详解区域 -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold text-blue-600 mb-4">Cloudflare IP 优选技术详解</h3>
+          <div class="text-gray-700 space-y-4">
+            <p>我们的 Cloudflare IP 优选工具采用多维度测试方法，通过实时数据分析和智能算法，为用户提供最优的 IP 选择建议。测试维度包括：</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>网络延迟测试：精确测量 IP 地址的响应时间</li>
+              <li>丢包率分析：评估网络传输的稳定性</li>
+              <li>下载速度测试：验证实际数据传输性能</li>
+              <li>地理位置优化：根据用户所在地区推荐最佳节点</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 最佳实践指南 -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold text-blue-600 mb-4">Cloudflare IP 优选最佳实践指南</h3>
+          <div class="text-gray-700 space-y-4">
+            <p>为了获得最佳的网络优化效果，我们建议您：</p>
+            <ol class="list-decimal pl-6 space-y-2">
+              <li>定期进行 IP 测速，保持最优性能</li>
+              <li>选择就近地区的测速结果</li>
+              <li>关注丢包率指标，选择稳定性高的 IP</li>
+              <li>综合考虑延迟和下载速度</li>
+              <li>建立备用 IP 方案，确保服务可用性</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- 常见问题解答 -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold text-blue-600 mb-4">常见问题解答 (FAQ)</h3>
+          <div class="space-y-4">
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h4 class="font-medium text-gray-800 mb-2">如何选择最适合的 Cloudflare IP？</h4>
+              <p class="text-gray-700">选择 Cloudflare IP 时，需要综合考虑多个因素：网络延迟、丢包率、下载速度等。建议优先选择延迟低、丢包率小的 IP 地址。</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h4 class="font-medium text-gray-800 mb-2">为什么要定期更新使用的 IP？</h4>
+              <p class="text-gray-700">网络状况是动态变化的，定期更新 IP 可以确保您始终使用最优的节点，保持最佳的访问体验。</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="https://link.cdtools.click/link.js"></script>
-
-</body>
-
+  </body>
 </html>
